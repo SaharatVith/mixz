@@ -1,0 +1,204 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  
+  
+      <section>
+
+      <div class="mt-5 container">
+        <div class="d-flex align-items-center justify-content-between mb-0">
+          <h1 h1 class="h3 mb-0 text-black mt-5"><b>สถานที่ท่องเที่ยวในกรุงเทพมหานคร</b></h1>
+          <div class="justify-content-end mt-5 d-flex flex-row">
+            <a href="#" class=" btn  btn-floating prev me-1" style="background: #0075ff;"><i class="fas fa-angle-left text-white"></i></a>
+            <a href="#" class=" btn  btn-floating next" style="background: #0075ff;"><i class="fas fa-angle-right text-white"></i></a>
+        </div>
+      </div>
+  
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          
+            <div class="card w-100 h-100">
+              
+              <img src="https://image.kkday.com/v2/image/get/w_1900%2Cc_fit/s1.kkday.com/product_135974/20221117092427_TvyNN/jpg"  class="card-img h-100"
+                alt="..."><div class="mask rounded" style="background-color: hsla(0, 0%, 0%, 0.2)"></div>  
+                <!-- <a class="btn btn-danger text-white position-absolute top-1 end-0 ms-4 my-0 fs-2" type="button"><b>1</b></a> -->
+              <div class="card-img-overlay text-white ">
+                <p class="text-white mb-0">สถานที่ช้อปปิ้ง</p>
+                <h2 class="text-white"><b>ตลาดนัดตจุจักร</b></h2>
+                <a class="btn btn-light text-black position-absolute bottom-0 start-0 ms-4 my-4 fs-6" type="button"><b>ดูเพิ่มเติม</b></a>
+              </div>
+            </div>
+          
+          
+        </div>
+  
+        <div class="swiper-slide">
+          
+          <div class="card w-100 h-100">
+            <img src="https://tatapi.tourismthailand.org/tatfs/Image/CustomPOI/Picture/P03025433_1.jpeg" class="card-img h-100"
+              alt="..."><div class="mask rounded" style="background-color: hsla(0, 0%, 0%, 0.2)"></div>
+            <div class="card-img-overlay text-white">
+              <p class="text-white mb-0">สถานที่ทางวัฒนธรรม</p>
+              <h2 class="text-white "><b>วัดพระเเก้ว </b></h2>
+              <a class="btn btn-light text-black position-absolute bottom-0 start-0 ms-4 my-4 fs-6" type="button"><b>ดูเพิ่มเติม</b></a>
+            </div>
+          </div>
+       
+        </div>
+  
+        <div class="swiper-slide">
+          
+          <div class="card w-100 h-100">
+            <img src="https://scontent.fbkk5-4.fna.fbcdn.net/v/t39.30808-6/310955349_8947788908580510_4580745884480026361_n.jpg?stp=dst-jpg_p960x960&_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=XH0UxxHBbpwAX8qnQsN&_nc_ht=scontent.fbkk5-4.fna&oh=00_AfDaBT3DBygFEr3KhZWVjQ9IbUAKdJ1AY8_pMxqRPf3g9w&oe=653053C0" class="card-img h-100"
+              alt="..."><div class="mask rounded" style="background-color: hsla(0, 0%, 0%, 0.05)"></div>
+            <div class="card-img-overlay text-white">
+              <p class="text-white mb-0">สถานที่สำหรับครอบครัว</p>
+              <h2 class="text-white "><b>สวนสนุกดรีมเวิลด์ Dream World</b></h2>
+              <a class="btn btn-light text-black position-absolute bottom-0 start-0 ms-4 my-4 fs-6" type="button"><b>ดูเพิ่มเติม</b></a>
+            </div>
+          </div>
+        
+        </div>
+  
+      </div>
+    </div>
+  
+    <hr>
+    </section>
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-between mb-0 mt-3">
+        <h1 class="h3 mb-0 text-black"><b>คุณอาจจะสนใจ</b></h1>
+        <div class="justify-content-end">
+          <a href="#" class=" btn btn-primary btn-floating prev-2" style="background: #0075ff;"><i class="fas fa-angle-left text-white"></i></a>
+          <a href="#" class=" btn btn-primary btn-floating next-2" style="background: #0075ff;"><i class="fas fa-angle-right text-white"></i></a>
+        </div>
+      </div>
+  
+      <div class="swiper RecommendSlide">
+        <div class="swiper-wrapper row-cols-1 row-cols-md-3 g-4">
+  
+          {% for in_item in recommended_places %}
+          <div class="swiper-slide">
+            <div class="col">
+              <div class="card w-100 shadow-none bg-none">
+                <img src="{{ in_item.image_cover }}"
+                  class="card-img-top rounded" alt="Image 4">
+                <div class="card-body p-3">
+
+                  <h5 class="card-title mb-0 fw-bold"><a href="/detail/{{in_item.id}}"> {{ in_item.name }}</a></h5>
+                  <p class="card-text mt-2" >Address: {{ in_item.address}}</p>
+                  <p class="card-text"> <b>Openning hours:</b>  {{ in_item.open_time }}-{{ in_item.close_time }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+  
+        </div>
+    </div>
+  
+
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-between mb-0 mt-3">
+        <h1 class="h3 mb-0 text-black"><b>Family</b></h1>
+        <div class="justify-content-end">
+          <a href="#" class=" btn btn-primary btn-floating prev-2" style="background: #0075ff;"><i class="fas fa-angle-left text-white"></i></a>
+          <a href="#" class=" btn btn-primary btn-floating next-2" style="background: #0075ff;"><i class="fas fa-angle-right text-white"></i></a>
+        </div>
+      </div>
+  
+      <div class="swiper RecommendSlide">
+        <div class="swiper-wrapper row-cols-1 row-cols-md-3 g-4">
+  
+          {% for fl_item in family_places %}
+          <div class="swiper-slide">
+            <div class="col">
+              <div class="card w-100 shadow-none bg-none">
+                <img src="{{ fl_item.image_cover }}"
+                  class="card-img-top rounded" alt="Image 4">
+                <div class="card-body p-3">
+
+                  <h5 class="card-title mb-0 fw-bold"> <a href="/detail/{{fl_item.id}}"> {{ fl_item.name }}</a> </h5>
+                  <p class="card-text mt-2" >Address: {{ fl_item.address}}</p>
+                  <p class="card-text"> <b>Openning hours:</b>  {{ fl_item.open_time }}-{{ fl_item.close_time }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+  
+        </div>
+    </div>
+  
+
+
+   
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <!-- Initialize Swiper -->
+  <script>
+      var swiper = new Swiper(".mySwiper", {
+          slidesPerView: 1,
+          spaceBetween: 20,
+          // pagination: {
+          //     el: ".swiper-pagination",
+          //     dynamicBullets: true,
+          // },
+          navigation: {
+              nextEl: ".next",
+              prevEl: ".prev",
+          },
+          breakpoints: {
+              768: {
+                  slidesPerView: 2
+              },
+              1024: {
+                  slidesPerView: 2.25
+              },
+          },
+      });
+  </script>
+  <script>
+      var swiper = new Swiper(".RecommendSlide", {
+          slidesPerView: 1,
+          spaceBetween: 20,
+          // pagination: {
+          //     el: ".swiper-pagination",
+          //     dynamicBullets: true,
+          // },
+          navigation: {
+              nextEl: ".next-2",
+              prevEl: ".prev-2",
+          },
+          breakpoints: {
+              768: {
+                  slidesPerView: 2
+              },
+              1024: {
+                  slidesPerView: 4
+              },
+          },
+      });
+    </script>
+    <script>
+      window.onscroll = () => {
+        toggleTopButton();
+      }
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      function toggleTopButton() {
+        if (document.body.scrollTop > 20 ||
+          document.documentElement.scrollTop > 20) {
+          document.getElementById('back-to-up').classList.remove('d-none');
+        } else {
+          document.getElementById('back-to-up').classList.add('d-none');
+        }
+      }
+
+    </script>
+
+{% endblock %}

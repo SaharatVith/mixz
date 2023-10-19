@@ -1,0 +1,58 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+  <div style="margin-top: 100px; margin-bottom: 100px">
+    <div class="row">
+      <div class="col-6">
+        {% for item in places %}
+        <div class="card mb-3" style="max-width: 540px">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img
+                src="{{item.image_cover}}"
+                alt="Trendy Pants and Shoes"
+                class="img-fluid rounded-start"
+              />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <a href="/detail/{{item.id}}"> {{item.name}} </a>
+                </h5>
+                <p class="card-text">{{item.description}}</p>
+                <p class="card-text">
+                  <small class="text-muted"
+                    >Opening: {{item.open_time}}-{{item.close_time}}</small
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="col-6">
+        <div id="map" style="width: 100%; height: 100vh"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    // Initialize the map
+    var mymap = L.map("map").setView([13.7292631, 100.3788022], 8);
+
+    // Add a tile layer (you can use other map providers)
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+    }).addTo(mymap);
+
+    {% for map_item in places%}
+    // Add markers for places
+    L.marker([{{map_item.latitude}}, {{map_item.longitude}}])
+      .addTo(mymap) // Use "mymap" here, not "map"
+      .bindPopup("{{map_item.name}}")
+
+  {% endfor %}
+</script>
+
+{% endblock %}
